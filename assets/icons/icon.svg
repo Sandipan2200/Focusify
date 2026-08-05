@@ -1,0 +1,49 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2563EB"/>
+            <stop offset="100%" stop-color="#1D4ED8"/>
+        </linearGradient>
+
+        <filter id="shadow">
+            <feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity="0.25"/>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect x="32" y="32" width="448" height="448" rx="110"
+          fill="url(#bg)" filter="url(#shadow)"/>
+
+    <!-- Shield -->
+    <path d="M256 110
+             L360 150
+             V245
+             C360 325 315 387 256 420
+             C197 387 152 325 152 245
+             V150
+             Z"
+          fill="white"/>
+
+    <!-- Play Button -->
+    <polygon points="230,205 310,256 230,307"
+             fill="#2563EB"/>
+
+    <!-- Brain Lines -->
+    <path d="M205 170
+             C190 160 175 175 180 190
+             C165 195 165 220 185 225"
+
+          fill="none"
+          stroke="#2563EB"
+          stroke-width="10"
+          stroke-linecap="round"/>
+
+    <path d="M307 170
+             C322 160 337 175 332 190
+             C347 195 347 220 327 225"
+
+          fill="none"
+          stroke="#2563EB"
+          stroke-width="10"
+          stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,77 @@
+/* FocusTube Content CSS
+ * Contains the single class used by content.js to hide cards.
+ * Hiding via one class (instead of inline styles) is cheaper because the
+ * compositor can batch the style change and the element keeps no per-item
+ * inline style writes.
+ */
+
+/* Matched videos are hidden with this one class toggle (see content.js). */
+.focustube-hidden {
+  display: none !important;
+}
+
+/* Watch-page warning banner */
+#focustube-warning {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-family: Roboto, Arial, sans-serif;
+  color: #fecaca;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: focustube-fade-in 0.2s ease;
+}
+
+#focustube-warning .focustube-warning-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #f87171;
+  letter-spacing: 0.3px;
+}
+
+#focustube-warning p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#focustube-warning .focustube-warning-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+#focustube-warning button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  transition: opacity 0.2s ease;
+}
+
+#focustube-warning button:hover {
+  opacity: 0.9;
+}
+
+#focustube-warning button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+@keyframes focustube-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusTube Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </div>
+      <h1>FocusTube Settings</h1>
+    </header>
+
+    <div class="navigation">
+      <button class="nav-item active" data-section="filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 3H2v18h20V3zM8 17l4-5-4-5v10z"></path>
+        </svg>
+        Filters
+      </button>
+      <button class="nav-item" data-section="brainrot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a10 10 0 0 0-9.95 11h20.9A10 10 0 0 0 12 2zM12 22a10 10 0 0 1-9.95-11h20.9A10 10 0 0 1 12 22z"></path>
+        </svg>
+        Brain Rot Keywords
+      </button>
+      <button class="nav-item" data-section="ai">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        AI-Generated Keywords
+      </button>
+      <button class="nav-item" data-section="greenscreen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2.5 9h21l-1.5 12H3.5L2.5 9z"></path>
+          <path d="M12 9v6"></path>
+          <path d="M8 9h8"></path>
+        </svg>
+        Green Screen Keywords
+      </button>
+      <button class="nav-item" data-section="channels">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2.5 9h21l-1.5 12H3.5L2.5 9z"></path>
+          <path d="M12 9.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"></path>
+          <path d="M5.5 9h13v10h-13z"></path>
+        </svg>
+        Blocked Channels
+      </button>
+      <button class="nav-item" data-section="statistics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM12 20c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
+        Statistics
+      </button>
+      <button class="nav-item" data-section="about">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4"></path>
+          <path d="M12 8h.01"></path>
+        </svg>
+        About
+      </button>
+    </div>
+
+    <div class="content">
+      <section id="filters-section" class="settings-section active">
+        <h2>Content Filters</h2>
+
+        <div class="setting-item">
+          <label class="switch-label">Hide Brain Rot videos</label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="filter-brainrot">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="switch-label">Hide AI-Generated videos</label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="filter-ai">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="switch-label">Hide Green Screen videos</label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="filter-greenscreen">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <section id="brainrot-section" class="settings-section">
+        <h2>Brain Rot Keywords</h2>
+        <p class="section-note">Videos whose title or channel name contains any of these words are hidden.</p>
+
+        <div class="keyword-manager">
+          <div class="keyword-list" id="brainrot-keyword-list"></div>
+          <div class="keyword-input">
+            <input type="text" id="brainrot-keyword-input" placeholder="Add keyword...">
+            <button id="add-brainrot-keyword">Add</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai-section" class="settings-section">
+        <h2>AI-Generated Keywords</h2>
+        <p class="section-note">Videos whose title or channel name contains any of these words are hidden.</p>
+
+        <div class="keyword-manager">
+          <div class="keyword-list" id="ai-keyword-list"></div>
+          <div class="keyword-input">
+            <input type="text" id="ai-keyword-input" placeholder="Add keyword...">
+            <button id="add-ai-keyword">Add</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="greenscreen-section" class="settings-section">
+        <h2>Green Screen Keywords</h2>
+        <p class="section-note">Videos whose title or channel name contains any of these words are hidden.</p>
+
+        <div class="keyword-manager">
+          <div class="keyword-list" id="greenscreen-keyword-list"></div>
+          <div class="keyword-input">
+            <input type="text" id="greenscreen-keyword-input" placeholder="Add keyword...">
+            <button id="add-greenscreen-keyword">Add</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="channels-section" class="settings-section">
+        <h2>Blocked Channels</h2>
+
+        <div class="channel-search">
+          <input type="text" id="channel-search" placeholder="Search blocked channels...">
+        </div>
+
+        <div class="channel-list" id="blocked-channel-list"></div>
+
+        <div class="channel-form">
+          <h3>Add Channel</h3>
+          <div class="form-group">
+            <label>Channel ID or handle</label>
+            <input type="text" id="new-channel-id" placeholder="UC... or @handle">
+          </div>
+          <div class="form-group">
+            <label>Channel Name</label>
+            <input type="text" id="new-channel-name" placeholder="Channel name">
+          </div>
+          <button id="add-channel-btn">Add Channel</button>
+        </div>
+      </section>
+
+      <section id="statistics-section" class="settings-section">
+        <h2>Statistics</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Today's Stats</h3>
+            <div class="stat-item">
+              <span>Brain Rot Hidden</span>
+              <span id="today-brainrot-hidden">0</span>
+            </div>
+            <div class="stat-item">
+              <span>AI-Generated Hidden</span>
+              <span id="today-ai-hidden">0</span>
+            </div>
+            <div class="stat-item">
+              <span>Green Screen Hidden</span>
+              <span id="today-greenscreen-hidden">0</span>
+            </div>
+            <div class="stat-item">
+              <span>Channels Blocked</span>
+              <span id="today-channels-blocked">0</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <h3>Weekly Stats</h3>
+            <div class="stat-item">
+              <span>Brain Rot Hidden</span>
+              <span id="week-brainrot-hidden">0</span>
+            </div>
+            <div class="stat-item">
+              <span>AI-Generated Hidden</span>
+              <span id="week-ai-hidden">0</span>
+            </div>
+            <div class="stat-item">
+              <span>Green Screen Hidden</span>
+              <span id="week-greenscreen-hidden">0</span>
+            </div>
+            <div class="stat-item">
+              <span>Channels Blocked</span>
+              <span id="week-channels-blocked">0</span>
+            </div>
+          </div>
+        </div>
+
+        <button id="reset-stats-btn" class="danger-button">Reset Statistics</button>
+      </section>
+
+      <section id="about-section" class="settings-section">
+        <h2>About FocusTube</h2>
+        <div class="about-content">
+          <p>Version: 1.1.0</p>
+          <p>FocusTube removes brain rot, green screen, and AI-generated videos from YouTube so you can focus on content that matters.</p>
+          <p>Detection is based on keywords in video titles and channel names. You can customize the keyword lists in this settings page.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="options.js" defer></script>
+</body>
+</html>
